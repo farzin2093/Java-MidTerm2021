@@ -1,29 +1,143 @@
 Please answer the below Data Structure Questions:
 
 why do we need data structure?
-Ans :
+Ans : It refers to the way data is organized and manipulated and seeks to find ways to make data
+access more efficient.
 
 What are the various operations that can be performed on different Data Structures?
+Ans:
+~ Insertion - adding a new data item in the given collection of data items.
+~ Deletion - deleting an existing data item from the given collection of data items.
+~ Traversal - accessing each data item exactly once so that it can be processed.
+~ Searching - finding out the location of the data item if it exists in the given collection of data items.
+~ Sorting - arranging the data items in some order i.e. in ascending or descending order in case of numerical
+data and in dictionary order in case of alphanumeric data.
+
 List out the areas in which data structures are applied extensively?
+Ans: Data structures are essential in almost every aspect where data is involved. In general,
+algorithms that involve efficient data structure is applied in the following areas: numerical analysis,
+operating system, A.I., compiler design, database management, graphics, and statistical analysis, to name a few.
+
 what is an Array?
+Ans:Arrays are the collection of similar types of data stored at contiguous memory locations.
+It is the simplest data structure where the data element can be accessed randomly just by using its index number.
+
 what is the difference between the Array and ArrayList?
+Ans:
+~ Arrays are static in nature, whereas, ArrayLists are dynamic in nature.
+~ Arrays can hold both primitive data type as well as objects, whereas, ArrayLists can hold only objects.
+~ Arrays uses length() to calculate the number of elements, whereas, ArrayLists uses size() to calculate the
+number of elements.
+~ Elements are stored in an Array using the assignment operator, whereas, elements are stored in an ArrayList
+using add() method.
+
 what is LinkedList?
+Ans: A linked list is a data structure that has sequence of nodes where every node is connected to the next node
+by means of a reference pointer. The elements are not stored in adjacent memory locations.
+They are linked using pointers to form a chain. This forms a chain-like link for data storage.
+
 How is an Array different from Linked List?
+Ans:
+~ The size of the arrays is fixed, Linked Lists are Dynamic in size.
+~ Inserting and deleting a new element in an array of elements is expensive, Whereas both insertion and deletion
+can easily be done in Linked Lists.
+~ Random access is not allowed in Linked Listed.
+~ Extra memory space for a pointer is required with each element of the Linked list.
+~ Arrays have better cache locality that can make a pretty big difference in performance.
+
 what is queue?
+Ans:A queue is a linear data structure that follows the FIFO (First In First Out) approach for accessing elements.
+
 what is stack?
+Ans:Stack is a linear data structure that follows LIFO (Last In First Out) approach for accessing elements.
+
 what is FIFO and LIFO?
+Ans:LIFO is a short form of Last In First Out. It refers how data is accessed, stored and retrieved -
+data that was stored last should be the one to be extracted first.
+FIFO stands for First-in, First-out, and is used to represent how data is accessed in a queue. Data has
+been inserted into the queue list the longest is the one that is removed first.
+
 what is the order of complexity?
+Ans:It is a certain mathematical expression of the size of the input.
+
 what is the best case to search an element from an array?
+Ans: Sequential for unsorted array and binary search for sorted array
+
 what is the worst case to search an element from an array?
+Ans: linear
+
 what is tree in data structure?
+Ans: Tree is a recursive, non-linear data structure consisting of the set of one or more data nodes where
+one node is designated as the root and the remaining nodes are called as the children of the root.
+Tree organizes data into hierarchial manner. The most commonly used tree data structure is a binary tree and its variants.
+
 what is graph in data structure?
+Ans: A graph is one type of data structure that contains a set of ordered pairs.
+These ordered pairs are also referred to as edges or arcs and are used to connect nodes where data
+can be stored and retrieved.
+
 what is the difference between the HashTable and HashMap?
+Ans:
+~ HashMap is non synchronized while Hashtable is synchronized.
+~ HashMap allows one null key and multiple null values while Hashtable doesn’t allow any null key or value.
+~ HashMap is fast while Hashtable is slow.
+~ HashMap inherits AbstractMap class while Hashtable inherits Dictionary class.
+
 What are the major data structures used in the following areas : RDBMS, Network data model and Hierarchical data model.
+Ans:
+~ RDBMS = Array (i.e. Array of structures)
+~ Network data model = Graph.
+~ Hierarchical data model = Trees.
+
 How HashMap works in java?
+Ans:HashMap in Java works on hashing principles. It is a data structure which allows us to store object
+and retrieve it in constant time O(1) provided we know the key. In hashing, hash functions are used to
+link key and value in HashMap. Objects are stored by calling put(key, value) method of HashMap and retrieved
+by calling get(key) method.
+
 What is ArrayIndexOutOfBoundsException in java? When it occurs?
+Ans:ArrayIndexOutOfBoundsException is thrown to indicate that we are trying to access array element with an illegal index.
+This exception is thrown when the index is either negative or greater than or equal to the size of the array.
+
 What are the different ways of copying an array into another array?
+Ans: The method to use is mainly dependent upon the exact scenario.
+~ Using variable assignment. This method has side effects as changes to the element of an array
+reflects on both the places. To prevent this side effect following are the better ways to copy the array elements.
+~ Create a new array of the same length and copy each element.
+~ Use the clone method of the array. Clone methods create a new array of the same size.
+~ Use System.arraycopy() method. arraycopy can be used to copy a subset of an array.
+
 What is difference between an array and a linked list?
+Ans:
+~ In the linked list elements can be added to it indefinitely, while an array will eventually get filled
+or have to be resized.
+~ Elements are also easily removed from a linked list whereas removing elements from an array leaves empty
+spaces that are a waste of computer memory.
+~ unlike arrays which allow random access to the elements contained within them, a link list only allows
+sequential access to its elements.
+~ Linked lists also use more storage space in a computer's memory as each node in the list contains both a
+ data item and a reference to the next node.
+~  linked lists should be used for large lists of data where the total number of items in the list is changing.
+Arrays, on the other hand, are better suited to small lists, where the maximum number of items that could be on the list is known.
+
 What is DFS and BFS?
+Ans: BFS (Breadth First Search) and DFS (Depth First Search) both are the traversing methods for a graph.
+Graph traversal is nothing but the process of visiting all the nodes of the graph.
+The main difference between BFS and DFS is that BFS traverses level by level whereas DFS follows first a path
+from the starting to the end node, then another path from the start to end, and so on until all nodes are visited.
+Furthermore, BFS uses queue data structure for storing the nodes whereas DFS uses the stack for traversal of the
+nodes for implementation.
+
 What is Recursion?
+Ans: Recursive algorithm targets a problem by dividing it into smaller, manageable sub-problems.
+The output of one recursion after processing one sub-problem becomes the input to the next recursive process.
+
 What are linear and non linear data Structures?
+Ans: The linear data structure is a structure wherein data elements are adjacent to each other.
+Examples of linear data structure include arrays, linked lists, stacks, and queues.
+The non-linear data structure is a structure wherein each data element can connect to more than two
+adjacent data elements. Examples of nonlinear data structure include trees and graphs.
+
 What is Big-(O)-notation?
+Ans: Big O notation is the most common metric for calculating time complexity. It describes the execution time
+of a task in relation to the number of steps required to complete it.

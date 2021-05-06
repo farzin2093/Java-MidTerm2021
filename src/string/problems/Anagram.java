@@ -2,51 +2,40 @@ package string.problems;
 
 
 
-// JAVA program to check whether two strings
-// are anagrams of each other
-import java.io.*;
-import java.util.Arrays;
-import java.util.Collections;
 
-class Anagram {
+
+
 
     /* function to check whether two strings are
     anagram of each other */
-    static boolean areAnagram(char[] str1, char[] str2)
-    {
-        // Get lenghts of both strings
-        int n1 = str1.length;
-        int n2 = str2.length;
 
-        // If length of both strings is not same,
-        // then they cannot be anagram
-        if (n1 != n2)
-            return false;
+import java.util.Arrays;
 
-        // Sort both strings
-        Arrays.sort(str1);
-        Arrays.sort(str2);
+ class Anagram {
 
-        // Compare sorted strings
-        for (int i = 0; i < n1; i++)
-            if (str1[i] != str2[i])
-                return false;
+    public static void main(String[] args) {
+        String a = "TALE";
+        String b = "LATE";
 
-        return true;
+        boolean anagram = checkIfStringsAreAnagram(a, b);
+
+
+        if (anagram) {
+            System.out.println("anagram");
+        } else {
+            System.out.println("not anagram");
+        }
     }
 
-    /* Driver Code*/
-    public static void main(String args[])
-    {
-        char str1[] = { 't', 'e', 's', 't' };
-        char str2[] = { 't', 't', 'e', 'w' };
+    public static boolean checkIfStringsAreAnagram(String a, String b) {
 
-        // Function Call
-        if (areAnagram(str1, str2))
-            System.out.println("The two strings are"
-                    + " anagram of each other");
-        else
-            System.out.println("The two strings are not"
-                    + " anagram of each other");
+        char[] firstArray = a.toUpperCase().toCharArray();
+        char[] secondArray = b.toUpperCase().toCharArray();
+
+        Arrays.sort(firstArray);
+        Arrays.sort(secondArray);
+
+        return Arrays.equals(firstArray, secondArray);
+
     }
 }

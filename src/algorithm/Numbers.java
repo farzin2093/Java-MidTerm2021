@@ -2,6 +2,9 @@ package algorithm;
 
 import databases.ConnectToSqlDB;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import java.util.List;
 import java.util.Random;
 
@@ -19,26 +22,64 @@ public class Numbers {
 
         int[] num = new int[1000000];
         storeRandomNumbers(num);
-        ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
+        //       ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
+
         //Selection Sort
         Sort algo = new Sort();
         algo.selectionSort(num);
         long selectionSortExecutionTime = algo.executionTime;
         System.out.println("Total Execution Time of " + num.length + " numbers in Selection Sort take: " + selectionSortExecutionTime + " milli sec");
-        connectToSqlDB.insertDataFromArrayToSqlTable(num, "selection_sort", "SortingNumbers");
-        List<String> numbers = connectToSqlDB.readDataBase("selection_sort", "SortingNumbers");
-        printValue(numbers);
+//        connectToSqlDB.insertDataFromArrayToSqlTable(num, "selection_sort", "SortingNumbers");
+//        List<String> numbers = connectToSqlDB.readDataBase("selection_sort", "SortingNumbers");
+//        printValue(numbers);
+
+        //Insertion Sort
         int n = num.length;
         randomize(num, n);
-        //Insertion Sort
         algo.insertionSort(num);
         long insertionSortExecutionTime = algo.executionTime;
         System.out.println("Total Execution Time of " + num.length + " numbers in Insertion Sort take: " + insertionSortExecutionTime + " milli sec");
+//        connectToSqlDB.insertDataFromArrayToSqlTable(num, "insertion_sort", "SortingNumbers");
+//        List<String> numbers = connectToSqlDB.readDataBase("insertion_sort", "SortingNumbers");
+//        printValue(numbers);
 
         //By following above, Continue for rest of the Sorting Algorithm....
 
-        //Come to conclusion about which Sorting Algo is better in given data set.
+        // BubbleSort
+        n = num.length;
+        randomize(num, n);
+        algo.bubbleSort(num);
+        long bubbleSortExecutionTime = algo.executionTime;
+        System.out.println("Total Execution Time of " + num.length + " numbers in bubble Sort take: " + bubbleSortExecutionTime + " milli sec");
+//        connectToSqlDB.insertDataFromArrayToSqlTable(num, "bubble_sort", "SortingNumbers");
+//        List<String> numbers = connectToSqlDB.readDataBase("bubble_sort", "SortingNumbers");
+//        printValue(numbers);
 
+        String username = "root";
+        String password = "root1234";
+        String dbName = "peoplentech";
+
+
+        String url = "jdbc:mysql://localhost:3306/" + dbName + "";
+
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = DriverManager.getConnection(url, username, password);
+        Statement statement = connection.createStatement();
+
+        //Come to conclusion about which Sorting Algo is better in given data set.
+        if( (selectionSortExecutionTime < insertionSortExecutionTime) && ( selectionSortExecutionTime < bubbleSortExecutionTime) ){
+            System.out.println("Selection Sort is most efficient");
+            return;
+        }
+        if( (insertionSortExecutionTime < selectionSortExecutionTime ) && ( insertionSortExecutionTime < bubbleSortExecutionTime) ){
+            System.out.println("Insertion Sort is most efficient");
+            return;
+        }
+        if( (bubbleSortExecutionTime < selectionSortExecutionTime ) && ( bubbleSortExecutionTime < insertionSortExecutionTime ) ){
+            System.out.println("Bubble Sort is most efficient");
+            return;
+        }
     }
 
     public static void storeRandomNumbers(int[] num) {
@@ -65,4 +106,5 @@ public class Numbers {
             System.out.println(st);
         }
     }
+
 }

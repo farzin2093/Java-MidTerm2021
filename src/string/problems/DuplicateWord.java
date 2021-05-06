@@ -1,35 +1,35 @@
 package string.problems;
 
-/*
- * Write a java program to find the duplicate words and their number of occurrences in the string.
- * Also Find the average length of the words.
- */
+import java.util.HashMap;
 
-public class DuplicateWord {
+ class DuplicateWords {
+
+
     public static void main(String[] args) {
-        String string = "Java is a programming Language. Java is also an Island of Indonesia. Java is widely used language";
-        int count;
+        /*
+         * Write a java program to find the duplicate words and their number of occurrences in the string.
+         * Also Find the average length of the words.
+         */
 
-        //Converts the string into lowercase
-        string = string.toLowerCase();
+        String data = "Java is a programming language . Java is also an island of indonesia . Java is widely used language in development .";
 
-        //Split the string into words using built-in function
-        String words[] = string.split(" ");
+        String[] splittedData = data.split(" ");
 
-        System.out.println("Duplicate words in a given string : ");
-        for (int i = 0; i < words.length; i++) {
-            count = 1;
-            for (int j = i + 1; j < words.length; j++) {
-                if (words[i].equals(words[j])) {
-                    count++;
-                    //Set words[j] to 0 to avoid printing visited word
-                    words[j] = "0";
-                }
+        HashMap<String, Integer> occurences = new HashMap<>();
+
+        for (int i = 0; i < splittedData.length; i++) {
+            Integer previousCount = occurences.get(splittedData[i]);
+            if (previousCount == null) {
+                previousCount = 0;
             }
 
-            //Displays the duplicate word if count is greater than 1
-            if (count > 1 && words[i] != "0")
-                System.out.println(words[i]);
+            occurences.put(splittedData[i], previousCount + 1);
         }
+
+        System.out.println(occurences);
+
+        System.out.println(occurences.get("Java"));
+
+
     }
 }

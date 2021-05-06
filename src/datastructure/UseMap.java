@@ -23,11 +23,11 @@ public class UseMap {
                 HashMap<Integer, String> usemap = new HashMap<Integer, String>();
 
 
-                usemap.put(12, "Meron");
-                usemap.put(2, "Asgedom");
-                usemap.put(7, "Weds");
-                usemap.put(49, "Zann");
-                usemap.put(3, "Sehum");
+                usemap.put(12, "Julia");
+                usemap.put(2, "Tanzina");
+                usemap.put(7, "Thamina");
+                usemap.put(49, "Shadman");
+                usemap.put(3, "Farzin");
 
                 /* Display content using Iterator*/
                 Set set = usemap.entrySet();
